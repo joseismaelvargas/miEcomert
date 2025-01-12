@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node --env-file .env --watch index.js"
   },
   "keywords": [
     "middleware",
@@ -11,10 +12,14 @@
     "Base de datos",
     "ExpressJs"
   ],
+  "type": "module",
   "author": "Ismael Vargas",
   "license": "ISC",
   "description": "Proyecto Ecomert",
   "dependencies": {
-    "express": "^4.21.2"
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.4",
+    "morgan": "^1.10.0"
   }
 }
