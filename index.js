@@ -3,6 +3,8 @@ import morgan from "morgan";
 import cors from "cors"
 import path from 'path';
 import { fileURLToPath } from 'url';
+import ruta from "./src/routes/producto.routes.js"
+import "./src/database/model/bdconection.js"
 const app=express()
 app.set('port',process.env.PORT||4000);
 
@@ -20,8 +22,4 @@ console.log(__dirname)
 app.use(express.static(path.join(__dirname,'/public')))
 
 
-app.get("/Prueba",(req,res)=>{
-    console.log("Alguien se conecto ala prueba")
-    res.send("Hola dese el backend")
-});
-
+app.use('/api',ruta)
