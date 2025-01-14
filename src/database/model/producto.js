@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const productosEcomert=new Schema({
     name:{
         type:String,
-        require:true,
+        required:true,
         maxLength:30,
         minLength:5,
         unique:true
@@ -11,18 +11,18 @@ const productosEcomert=new Schema({
     },
     namedetallado:{
         type:String,
-        require:true,
+        required:true,
         maxLength:200,
         minLength:20,
-        unique:true
+  
     },
     img:{
         type:String,
-        require:true
+        required:true
     },
     categoria:{
         type:String,
-        require:true
+        required:true
     },
     text:{
         type:String,
@@ -32,7 +32,7 @@ const productosEcomert=new Schema({
     },
     precio:{
         type:Number,
-        require:true,
+        required:true,
 
     },
     cantidad:{
