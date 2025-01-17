@@ -26,7 +26,7 @@ const productosEcomert=new Schema({
     },
     text:{
         type:String,
-        require:true,
+        required:true,
         minLength:3,
         maxLength:500
     },
