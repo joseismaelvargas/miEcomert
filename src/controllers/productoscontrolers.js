@@ -1,5 +1,6 @@
 import { error } from "console";
 import ProductoEcomert from "../database/model/producto.js";
+
 export const funcionprueba= (req,res)=>{
     console.log("Alguien se conecto ala prueba")
     res.send("Hola dese el backend")
