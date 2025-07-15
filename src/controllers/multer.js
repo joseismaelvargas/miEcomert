@@ -1,6 +1,6 @@
 import multer from "multer"
 import fs from "node:fs"
-import express from"express"
+
 const upload=multer({dest:'uploads/'})
 
 export function saveImage(file){
