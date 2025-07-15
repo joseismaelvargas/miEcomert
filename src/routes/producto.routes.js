@@ -7,8 +7,13 @@ const ruta=Router()
 ruta.route("/producto").post(crearProducto).get(verProducto)
 ruta.route("/producto/:id").put(editProducto).delete(deleteProducto)
 ruta.route('/images/single').post(subirImage,(req,res)=>{
-    res.send('Imagen cargado con exito');
+   res.send({
+  mensaje: 'Imagen subida correctamente',
+  archivo: req.file,
+  url: `/uploads/${req.file.filename}`
+});
      console.log(req.file);
    saveImage(req.file)
+  
 })
 export default ruta

@@ -17,6 +17,7 @@
   "license": "ISC",
   "description": "Proyecto Ecomert",
   "dependencies": {
+    "cloudinary": "^2.7.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "mongoose": "^8.9.4",
