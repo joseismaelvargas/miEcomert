@@ -6,14 +6,17 @@ const ruta=Router()
 
 ruta.route("/producto").post(crearProducto).get(verProducto)
 ruta.route("/producto/:id").put(editProducto).delete(deleteProducto)
-ruta.route('/images/single').post(subirImage, (req, res) => {
-  saveImage(req.file);
+ruta.route('/images/single').post(subirImage, async (req, res) => {
+  const nombreGuardado = await saveImage(req.file);
+  if (!nombreGuardado) {
+    return res.status(500).json({ mensaje: 'Error al guardar imagen' });
+  }
+
   res.json({
     mensaje: 'Imagen subida correctamente',
     archivo: req.file,
-    url: `/uploads/${req.file.filename}`
+    url: `/uploads/${nombreGuardado}`  // ← nombre final, accesible públicamente
   });
 });
-
 
 export default ruta
