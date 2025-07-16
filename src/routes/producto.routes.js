@@ -15,7 +15,7 @@ ruta.route('/images/single').post(subirImage, async (req, res) => {
   res.json({
     mensaje: 'Imagen subida correctamente',
     archivo: req.file,
-    url: `/uploads/${nombreGuardado}`  // ← nombre final, accesible públicamente
+    url: `/uploads/${nombreGuardado}` 
   });
 });
 

@@ -1,5 +1,7 @@
 import { error } from "console";
 import ProductoEcomert from "../database/model/producto.js";
+// importamos la funcion save image 
+import { saveImage } from "./multer.js";
 
 export const funcionprueba= (req,res)=>{
     console.log("Alguien se conecto ala prueba")
@@ -8,7 +10,13 @@ export const funcionprueba= (req,res)=>{
 
 export const crearProducto=async (req,res) =>{
      try{
-          const productonew=new ProductoEcomert(req.body)
+        let  imagen=null
+        if(req.file){
+            imagen=await saveImage(req.file)
+        }
+          const productonew=new ProductoEcomert(...req.body,{
+            img:`https://miecomert-production.up.railway.app/${imagen}`,
+          })
           await productonew.save()
           res.status(201).json({message:"Se creo el producto" })
      }catch(error){

@@ -6,17 +6,24 @@ import multer from 'multer';
 const upload = multer({ dest: 'uploads/' });
 
 // Función para renombrar el archivo al nombre original o uno único
+export let urlImage=""
 export async function saveImage(file) {
-  const uniqueName = `${Date.now()}-${file.originalname}`;
+  const uniqueName = `${file.originalname}`;
   const newPath = path.join('uploads', uniqueName);
+    urlImage=newPath
+     console.log('Imagen guardada en:', newPath);
+     console.log(urlImage)
   try {
     await fs.rename(file.path, newPath);
     console.log('Imagen guardada en:', newPath);
+  
+   
     return uniqueName;
   } catch (err) {
     console.error('Error al guardar imagen:', err);
     return null;
-  }
+  } 
+  
 }
 
 // Middleware de multer para subir una sola imagen
