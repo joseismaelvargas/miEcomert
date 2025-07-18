@@ -18,7 +18,7 @@ const productosEcomert=new Schema({
     },
     img:{
         type:String,
-        required:true
+
     },
     categoria:{
         type:String,
