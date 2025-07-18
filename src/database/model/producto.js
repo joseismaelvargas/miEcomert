@@ -16,7 +16,7 @@ const productosEcomert=new Schema({
         minLength:20,
   
     },
-    img:{
+    imageProduct:{
         type:String,
 
     },
