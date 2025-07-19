@@ -9,22 +9,23 @@ export const funcionprueba= (req,res)=>{
 }
 
 export const crearProducto=async (req,res) =>{
-  console.log("BODY:", req.body);
-    console.log("FILE:", req.file);
+ 
      try{
          
         let  imagen=null
         if(req.file){
             imagen=await saveImage(req.file)
         }
+        console.log(imagen)
              const productonew = new ProductoEcomert({
       ...req.body,
-     imageProduct: imagen ? `https://miecomert-production.up.railway.app/${imagen}` : null,
+     imageProduct: imagen ? `https://miecomert-production.up.railway.app/uploads/${imagen}` : null,
     });
           await productonew.save()
           res.status(201).json({message:"Se creo el producto" })
      }catch(error){
-      
+       console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
        res.status(500).json({message:" un error al crear el Producto"})
        console.error(error)
      }
