@@ -12,7 +12,7 @@ export async function saveImage(file) {
   const uniqueName = `${file.originalname}`;
   const newPath = path.join('uploads', uniqueName);
  
-    
+   
   try {
     await fs.rename(file.path, newPath);
     console.log('Imagen guardada en:', newPath);
@@ -26,16 +26,16 @@ export async function saveImage(file) {
   
 }
 // export  async function urlimage (req, res)  {
-//   const nombreGuardado =await  saveImage(req.file);
-//   if (!nombreGuardado) {
-//     return res.status(500).json({ mensaje: 'Error al guardar imagen' });
-//   }
+  // const nombreGuardado =await  saveImage(req.file);
+  // if (!nombreGuardado) {
+  //   return res.status(500).json({ mensaje: 'Error al guardar imagen' });
+  // }
 
-//   res.json({
-//     mensaje: 'Imagen subida correctamente',
-//     archivo: req.file,
-//     url: `/uploads/${nombreGuardado}` 
-//   });
+  // res.json({
+  //   mensaje: 'Imagen subida correctamente',
+  //   archivo: req.file,
+  //   url: `/uploads/${nombreGuardado}` 
+  // });
 // }
 
 // Middleware de multer para subir una sola imagen

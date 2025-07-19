@@ -19,7 +19,7 @@ export const crearProducto=async (req,res) =>{
         }
              const productonew = new ProductoEcomert({
       ...req.body,
-     imageProduct: imagen ? `https://miecomert-production.up.railway.app/uploads/${imagen}` : null,
+     imageProduct: imagen ? `https://miecomert-production.up.railway.app/${imagen}` : null,
     });
           await productonew.save()
           res.status(201).json({message:"Se creo el producto" })
