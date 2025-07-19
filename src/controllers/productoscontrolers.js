@@ -9,7 +9,7 @@ export const funcionprueba= (req,res)=>{
 }
 
 export const crearProducto=async (req,res) =>{
-    console.log("BODY:", req.body);
+  console.log("BODY:", req.body);
     console.log("FILE:", req.file);
      try{
          
@@ -24,7 +24,7 @@ export const crearProducto=async (req,res) =>{
           await productonew.save()
           res.status(201).json({message:"Se creo el producto" })
      }catch(error){
-    
+      
        res.status(500).json({message:" un error al crear el Producto"})
        console.error(error)
      }
