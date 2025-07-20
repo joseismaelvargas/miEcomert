@@ -43,16 +43,22 @@ export const verProducto = async (req, res) => {
 };
 export const editProducto = async (req, res) => {
     try {
-       
+        let imagen=null
         const buscarProducto = await ProductoEcomert.findById(req.params.id);
         if (!buscarProducto) {
             return res.status(404).json({ message: "No se encontró el producto para editar" });
         }
-
+         if(req.file){
+         imagen=await saveImage(req.file)
+         }
        
         const productoActualizado = await ProductoEcomert.findByIdAndUpdate(
-            req.params.id,
-            req.body,
+            req.params.id,{
+                ...req.body,
+                imageProduct: imagen ? `https://miecomert-production.up.railway.app/uploads/${imagen}` : null,
+            },
+         
+
             { new: true } 
         );
 
