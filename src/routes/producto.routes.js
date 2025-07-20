@@ -5,6 +5,6 @@ import { verProducto,editProducto,crearProducto,deleteProducto} from "../control
 const ruta=Router()
 
 ruta.route("/producto").post(subirImage,crearProducto).get(verProducto)
-ruta.route("/producto/:id").put(editProducto).delete(deleteProducto)
+ruta.route("/producto/:id").put(subirImage,editProducto).delete(deleteProducto)
 
 export default ruta
